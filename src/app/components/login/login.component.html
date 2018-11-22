@@ -1,0 +1,15 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
+<div class="bg-rockwell">
+  <div class="login-div">
+    <form class="form-signin">
+      <div class="col-sm-12">
+        <img class="brand" src="../../../assets/img/rockwell-logo-2.png">
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="user.username" name="username" placeholder="Username" >
+      <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password" >
+      <button class="btn btn-lg btn-primary btn-block login-btn" type="submit" (click)="login()">LOGIN</button>
+      <span toastContainer></span>
+    </form>
+  </div>
+</div>

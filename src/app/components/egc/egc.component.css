@@ -1,0 +1,34 @@
+.main-content{
+    background: url(../../../assets/img/backdrop-rockwell.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.modal-header, .modal-body, .modal-footer{
+    background: #050B1C !important;
+}
+
+.form-group{
+    text-align: center !important;
+}
+
+.form-group > button{
+    margin-top: 15px;
+}
+
+.card-header-primary{
+    background: #caaa58 !important;
+}
+
+i{
+    color:#333333;;
+}
+
+td > i:hover{
+    color: #caaa58;
+}
+
+.transactions {
+    margin-top: 50px;
+}

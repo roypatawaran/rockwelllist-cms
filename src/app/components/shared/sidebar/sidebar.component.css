@@ -1,0 +1,24 @@
+.logo{
+    background-color: #050B1C;
+}
+
+.logo-img  {
+    width: unset !important;
+    margin-left: 0px !important;
+}
+
+img {
+    width: unset !important; 
+    top: 16px;
+    position: unset !important;
+}
+
+.sidebar-wrapper{
+    background-color: #050B1C !important;
+    color: #999999 !important;
+    height: calc(100vh - 10px);
+}
+
+li.active > a{
+    background-color: #caaa58;
+}

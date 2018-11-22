@@ -1,0 +1,50 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col- md-12">
+            <input type="text">
+          </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Tenants List</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="text-primary">
+                  <th>Name</th>
+                  <th>Item Type</th>
+                  <th>Featured</th>
+                  <th>Location</th>
+                  <!-- <th>Description</th> -->
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.item_type}}</td>
+                    <td>{{item.featured}}</td>
+                    <td>{{item.location}}</td>
+                    <!-- <td>{{item.description}}</td> -->
+                    <td>
+                      <a href="#"><i class="material-icons">search</i></a>
+                      <a href="#"><i class="material-icons">edit</i></a>
+                      <a href="#"><i class="material-icons">clear</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

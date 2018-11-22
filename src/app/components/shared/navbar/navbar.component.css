@@ -1,0 +1,11 @@
+.container-fluid{
+    background-color: #050B1C;
+    color: #999999;
+    height: 70px;
+    position: fixed;
+    margin-top: 35px;
+}
+
+.navbar{
+    padding-top: 0;
+}
