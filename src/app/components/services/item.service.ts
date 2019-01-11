@@ -10,16 +10,28 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ItemsService {
-    private _url = "https://rockwell-mobile.herokuapp.com/v1/items/";
+    private _url = "http://localhost:3000/v1/items/";
     private token = sessionStorage.getItem("token");
-    private headerOptions = new Headers({'Content-Type': 'application/json', 'X-API-Key': 'c4b0f6409c117cd17d3c7638541c2029d642d3c9e71c6343741db45765df2a2f', 'Authorization': 'Bearer ' + this.token});
+    private headerOptions = new Headers({'Content-Type': 'application/json', 'X-API-Key': 'c4b0f6409c117cd17d3c7638541c2029d642d3c9e71c6343741db45765df2a2f', 'Authorization': 'Bearer ' + this.token, 'x-android-version' : 1});
 
 
     constructor(private _router: Router, private _http: Http, private _toastr: ToastrService) {}
 
     getItems(): Observable<any>{
         var requestOption = new RequestOptions({method: RequestMethod.Get, headers: this.headerOptions});
-        return this._http.get(this._url, requestOption)
+        return this._http.get(this._url + 'get/cms', requestOption)
+            .map((response: Response) => {
+                if(response){
+                    if(response.status == 200){
+                        return [{status: response.status, data: <Items>response.json()}]
+                    }
+                }
+            }).catch(this.handleError);
+    }
+
+    getItemDetails(tenant_id: any): Observable<any>{
+        var requestOption = new RequestOptions({method: RequestMethod.Get, headers: this.headerOptions});
+        return this._http.get(this._url + 'get/cms/' + tenant_id, requestOption)
             .map((response: Response) => {
                 if(response){
                     if(response.status == 200){
@@ -43,9 +55,9 @@ export class ItemsService {
     }
 
     
-    updateItem(id: any): Observable<any>{
-        var requestOption = new RequestOptions({method: RequestMethod.Get, headers: this.headerOptions});
-        return this._http.put(this._url + id, requestOption)
+    updateItem(item: Items): Observable<any>{
+        var requestOption = new RequestOptions({method: RequestMethod.Put, headers: this.headerOptions});
+        return this._http.put(this._url + "cms", item, requestOption)
             .map((response: Response) => {
                 if(response){
                     if(response.status == 200){

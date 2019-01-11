@@ -8,6 +8,8 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -53,7 +55,9 @@ const routes: Routes =[
     ComponentsModule,
     RouterModule.forRoot(routes),
     ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxQRCodeModule,
+    NgxDaterangepickerMd.forRoot()
   ],
   providers: [AppServices],
   bootstrap: [AppComponent]

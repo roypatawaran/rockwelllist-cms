@@ -1,5 +1,5 @@
 .main-content{
-    background: url(../../../assets/img/backdrop-rockwell.png);
+    background: url(../../../../assets/img/backdrop-rockwell.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -60,4 +60,27 @@ td > i:hover{
 .actionTd{
     display: flex;
     flex-direction: row;
+}
+
+.no-bg-btn{
+    background-color: transparent;
+    border: none;
+    vertical-align: -webkit-baseline-middle;
+}
+
+a > :hover{
+    color: #caaa58 !important;
+}
+
+table > :active{
+    color: black !important;
+}
+
+.click-qr{
+    cursor: pointer; 
+    color:blue !important;
+}
+
+.status{
+    font-weight: bold;
 }

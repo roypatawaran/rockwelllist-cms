@@ -1,0 +1,126 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+           <div class="card">
+              <div class="card-header card-header-primary">
+                  <h3 class="card-title">Tenants</h3>
+                  <h6>Edit the details of this tenant using the form below. Click on Save once done in order for changes to reﬂect. </h6>
+              </div>
+              <div class="card-body border-btm">
+                <div class="row">
+                  <div class="col-md-6">
+                      <label>Tenant Name</label>
+                      <input type="text" [(ngModel)]="tenant.name" class="form-control" name="amount" style="background-image: linear-gradient(to top, #caaa58 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Description/Writeup</label>
+                    <textarea [(ngModel)]="tenant.writeup" class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <label>Location</label>
+                    <select [(ngModel)]="tenant.location" class="form-control">
+                      <option>1</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Tenant Type</label>
+                    <select [(ngModel)]="tenant.item_type" class="form-control">
+                        <option>1</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>In-Store Photo URL</label>
+                    <div class="row">
+                      <div class="col-md-9">
+                        <input [(ngModel)]="tenant.image_url" type="file" class="form-control">
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="btn btn-default less-padding">Select</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <label>Thumbnail / Logo URL </label>
+                      <div class="row">
+                        <div class="col-md-9">
+                          <input [(ngModel)]="tenant.image_url" type="file" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                          <button type="button" class="btn btn-default less-padding">Select</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div  class="card">
+                      <div class="card-header border-btm">
+                        <div class="card-title">
+                          <h5>Similar Items</h5>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div *ngFor="let similar of tenant.similar_items" class="row">
+                          <div class="col-md-12">
+                            <label class="similar-item">{{similar.name}}</label>
+                            <button type="button" (click)="removeSimilarItems(similar)" class="no-bg-btn pull-right"><i class="material-icons">clear</i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                          <button type="button" (click)="addSimilarItems()" class="no-bg-btn"><span><i class="material-icons sml-icon">add</i> Add Similar Item</span></button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                      <div  class="card">
+                          <div class="card-header border-btm">
+                            <div class="card-title">
+                              <h5>Rockwellist Picks</h5>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="picks-container">
+                                <div *ngFor="let picks of tenant.rockwellist_picks" class="img-container">
+                                    <img height=150 width=150 src="{{picks.image_url}}" alt="" />
+                                    <i class="material-icons close">remove</i>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="card-footer">
+                            <button type="button" class="no-bg-btn"><span><i class="material-icons sml-icon">add</i> Add Rockwellist Pick</span></button>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                  <div class="container">
+                    <div class="pull-left">
+                      <button type="button" class="no-bg-btn">
+                        <span>
+                          <i class="material-icons sml-icon round-border">clear</i> 
+                          <span style="font-size: 15px" class="underline">Delete Movie</span>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="pull-right">
+                      <button type="button" (click)="discardChanges()" class="btn btn-default btn-sm">Discard Changes</button>
+                      <button type="button" (click)="updateItem()" class="btn btn-default btn-sm">Update and Save</button>
+                    </div>
+                  </div>
+                </div>
+           </div>
+        </div>
+      </div>
+  </div>
+</div>
+

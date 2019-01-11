@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, HostListener, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -37,7 +38,8 @@ export class EgcComponent implements OnInit {
   constructor(private modalService: BsModalService,
               private _spinner: NgxSpinnerService,
               private egcService: EGCService,
-              private _toastService: ToastrService) {}
+              private _toastService: ToastrService,
+              private _router: Router) {}
 
   ngOnInit() {
     this.getTransactions();
@@ -64,22 +66,27 @@ export class EgcComponent implements OnInit {
       progressSteps: ['1', '2']
     }).queue([
       {
-        title: 'Load E-GC',
-        text: 'Please enter an amount'
+        title: 'Enter Amount',
+        text: 'Select the amount to be loaded onto the EGC.',
+        inputValidator: (value) => {
+          return !value && 'Please enter an amount.'
+        }
       },
       {
-        title: 'Load E-GC',
-        text: 'Scan QR code'
+        title: 'Scan QR code',
+        text: 'Scan the QR code to be loaded'
       }
     ]).then((result) => {
       if (result.value) {
         this.tracking_id = result.value[1];
         this.amount = result.value[0];
         swal({
-          title: 'Please confirm.',
+          title: 'Confirm details',
+          text: 'Make sure that the amount below is correct.',
           html:
-            'Amount: <strong>' +  result.value[0] + '</strong>',
-          confirmButtonText: 'Submit!'
+            '<strong>' + result.value[0] + '</strong> PHP will be loaded to this EGC',
+          confirmButtonText: 'Confirm',
+          showCancelButton: true,
         }).then((submit) => {
           if(this.amount && this.transactions){
             this.loadegc();
@@ -87,6 +94,10 @@ export class EgcComponent implements OnInit {
         })
       }
     })
+  }
+
+  egcList(){
+    this._router.navigate(['/egc-list']);
   }
 
   handleInput(event: KeyboardEvent) { 

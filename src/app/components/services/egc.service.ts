@@ -42,6 +42,19 @@ export class EGCService {
             }).catch(this.handleError);
     }
 
+    getAllEGC(): Observable<any>{
+        var requestOption = new RequestOptions({method: RequestMethod.Get, headers: this.headerOptions});
+        return this._http.get(this._url, requestOption)
+            .map((response: Response) => {
+                if(response){
+                    if(response.status == 200){
+                        //this._toastr.success("Load Successful.");
+                        return [{status: response.status, data: response.json()}]
+                    }
+                }
+            }).catch(this.handleError);
+    }
+
     private handleError(error: any) {
         if (error.json().Message == 'Token expired') {
           alert('Session expired, please login.');

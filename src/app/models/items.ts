@@ -1,5 +1,6 @@
 export class Items {
     constructor(
+		public _id: String,
 		public item_type: String,
 		public render_type: String,
 		public name: String,

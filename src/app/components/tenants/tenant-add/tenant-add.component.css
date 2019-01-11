@@ -1,0 +1,93 @@
+.main-content{
+    background: url(../../../../assets/img/backdrop-rockwell.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.less-padding{
+    padding: 5px;
+}
+
+.card-header-primary{
+    background: #caaa58 !important;
+}
+
+input, textarea, select{
+    background-image: linear-gradient(to top, #caaa58 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px) !important;
+}
+
+h5{
+    margin-bottom: 0px;
+}
+
+.border-btm{
+    border-bottom: lightgrey 2px solid;
+}
+
+.row{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+select{
+    margin-bottom: 10px;
+}
+
+.similar-item{
+    font-size: 13px;
+}
+
+.no-bg-btn{
+    background-color: transparent;
+    border: none;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.no-bg-btn > :hover, :active{
+    color: #caaa58;
+}
+
+.picks-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sml-icon{
+    font-size: medium;
+}
+.img-container {
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+  }
+  .close {
+    border: 1px lightgray solid;
+    border-radius: 50%;
+    background-color: lightcoral;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: lightgray;
+    font-size: 15px;
+  }
+
+  input[type=file]{
+    position: unset;
+    opacity: unset;
+  }
+
+  .center-align{
+    margin: 0 auto;
+    width: 50%;
+}
+
+.underline{
+    text-decoration: underline #caaa58;
+}
+
+.round-border{
+    border: 1px black solid;
+    border-radius: 50%;
+}

@@ -1,9 +1,113 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
 <div class="main-content">
   <div class="container-fluid">
-      <h3>
-          movie works!
-      </h3>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h3 class="card-title">Movies</h3>
+            <h6>You can add, update, and delete information on the current movies on this page.</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Movie Name</th>
+                      <th>MTCRB Rating</th>
+                      <th>Genre</th>
+                      <th>Availablity</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let movie of movies">
+                        <td>{{movie.name}}</td>
+                        <td>{{movie.mtrcb_rating}}</td>
+                        <td>{{movie.genre}}</td>
+                        <td>{{getAvailability(movie.availability)}}</td>
+                        <td>
+                          <div class="actionTd">
+                              <button (click)="editMovies(movie)" class="editdelete" type="button"><i class="material-icons">edit</i></button>
+                              <button (click)="test()" class="editdelete" type="button"><i class="material-icons">clear</i></button>
+                          </div>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            <!-- <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="text-primary">
+                  <th>Name</th>
+                  <th>Item Type</th>
+                  <th>Featured</th>
+                  <th>Location</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.item_type}}</td>
+                    <td>{{item.featured}}</td>
+                    <td>{{item.location}}</td>
+                    <td>
+                      <a href="#"><i class="material-icons">search</i></a>
+                      <a href="#"><i class="material-icons">edit</i></a>
+                      <a href="#"><i class="material-icons">clear</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      <strong>{{selectedItem.name}}</strong>
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Tenant Name</label>
+        </div>
+        <div class="col-md-3">
+          <input type="text" [(ngModel)]="selectedItem.name" class="form-control" name="amount" style="background-image: linear-gradient(to top, #caaa58 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);">
+        </div>
+        <div class="col-md-3">
+            <label>Description/Writeup</label>
+          </div>
+          <div class="col-md-3">
+            <textarea type="" [(ngModel)]="selectedItem.name" class="form-control" name="amount" style="background-image: linear-gradient(to top, #caaa58 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);"></textarea>
+          </div>
+      </div>
+      <div class="row" style="margin-top: 15px">
+        <div class="col-md-12">
+          
+              <!-- <div *ngIf="isScanning" (keyup.enter)="handleInput($event)" tabindex="1"></div> -->
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row">
+      <div class="col-md-3">
+        <button type="button" (click)="loadegc()" class="btn btn-default">Submit</button>
+      </div>
+  </div>
+  </div>
+</ng-template>

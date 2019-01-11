@@ -1,0 +1,43 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h3 class="card-title">Rockwell E-GC</h3>
+            <h6>This report shows all the EGCs sold by the Tellers claimed or unclaimed</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>QR Code</th>
+                      <th>Date Issued</th>
+                      <th>Amount</th>
+                      <th>Reference ID</th>
+                      <th>Sold By</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let egc of egcs">
+                        <td>
+                          <a class="click-qr" (click)="viewQRcode(egc)">Click to view QR Code</a>
+                        </td>
+                        <td>{{egc.created_date | date: 'mediumDate'}}</td>
+                        <td>{{egc.amount}}</td>
+                        <td>{{egc.name}}</td>
+                        <td class="status">{{egc.claimed ? 'CLAIMED': 'NOT CLAIMED'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

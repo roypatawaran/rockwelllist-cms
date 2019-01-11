@@ -4,31 +4,41 @@
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h3>Rockwellist E-GC</h3>
-        <h6>You can add, update, and delete information on the current movies on this page.</h6>
+        <h3>Finance Reports</h3>
+        <h6>Summary of all reports to be used by Finance Team</h6>
       </div>
       <div class="card-body card-body-main">
           <div class="card-container">
               <div class="container">
                 <div style="display: flex">
-                    <div (click)="openSwal()" class="card card-btn">
+                    <div (click)="egcSold()" class="card card-btn">
                         <div class="card-header card-header-primary">
                           <div class="card-title">
                             <img class="img-title" src="../../../assets/img/egc-load.png">
                           </div>
                         </div>
                         <div class="card-body">
-                          <span>Load E-GC QR Codes</span>
+                          <span>View Sold E-GC Codes</span>
                         </div>
                     </div>
-                    <div (click)="egcList()" class="card card-btn">
+                    <div (click)="egcLoad()" class="card card-btn">
                         <div class="card-header card-header-primary">
                           <div class="card-title">
                             <img class="img-title" src="../../../assets/img/egc-list.png">
                           </div>
                         </div>
                         <div class="card-body">
-                          <span>E-GC List</span>
+                          <span>View Loaded E-GC Codes</span>
+                        </div>
+                    </div>
+                    <div (click)="tenantClaim()" class="card card-btn">
+                        <div class="card-header card-header-primary">
+                          <div class="card-title">
+                            <img class="img-title" src="../../../assets/img/egc-list.png">
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <span>View Tenant Claims</span>
                         </div>
                     </div>
                 </div>

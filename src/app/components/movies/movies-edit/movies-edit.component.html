@@ -1,0 +1,131 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#caaa58" type = "ball-fussion" ></ngx-spinner>
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Movies</h3>  
+                <h6>Edit the details of this movie using the form below. Click on <strong>Save</strong> once done in order for changes to reﬂect. </h6>
+            </div>
+            <div class="card-body  border-btm">
+              <div class="row">
+                <div class="col-md-6">
+                    <label>Tenant Name</label>
+                    <input type="text" [(ngModel)]="movie.name" class="form-control" name="name">
+                </div>
+                <div class="col-md-6">
+                    <label>Writeup</label>
+                    <textarea class="form-control" [(ngModel)]="movie.writeup" name="writeup"></textarea>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3">
+                    <label>MTCRB Rating</label>
+                    <select class="form-control" [(ngModel)]="movie.mtrcb_rating" name="mtrcb_rating">
+                      <option *ngFor="let rate of ratings">{{rate}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Genre</label>
+                    <select class="form-control" [(ngModel)]="movie.genre" name="genre">
+                        <option *ngFor="let gen of genre">{{gen}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                      <label>Description</label>
+                      <input type="text" class="form-control" [(ngModel)]="movie.description" name="description">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <label>Poster Photo URL</label>
+                    <div class="row">
+                      <div class="col-md-9">
+                        <input type="file" class="form-control">
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="btn btn-default less-padding">Select</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <label>Trailer URL</label>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <input type="text" class="form-control" [(ngModel)]="movie.trailer_url" name="trailer_url">
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header border-btm">
+                      <h5 class="card-title">Availability</h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="center-align">
+                                  <input type="checkbox" name="PPMC" [(ngModel)]="isPMCAvailable" id="aa" checked /> &nbsp;
+                                  <label>Powerplant Mall Cinema</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <input [disabled]="!isPMCAvailable" type="date" [(ngModel)]="PMC.opening_date" class="form-control" placeholder="Opening Date" >
+                              <br>
+                              <input [disabled]="!isPMCAvailable" type="date" [(ngModel)]="PMC.end_date" class="form-control" placeholder="Closing Date">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="center-align">
+                                    <input type="checkbox" [(ngModel)]="isSTPCAvailable" name="STPC" value="1" id="aa" checked /> &nbsp;
+                                    <label>Santolan Town Plaza Cinema</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <input type="date" [disabled]="!isSTPCAvailable" [(ngModel)]="STPC.opening_date" class="form-control" placeholder="Opening Date">
+                                <br>
+                                <input type="date" [disabled]="!isSTPCAvailable" [(ngModel)]="STPC.end_date" class="form-control" placeholder="Closing Date">
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="container">
+                <div class="pull-left">
+                  <button type="button" class="no-bg-btn">
+                    <span>
+                      <i class="material-icons sml-icon round-border">clear</i> 
+                      <span style="font-size: 15px" class="underline">Delete Movie</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="pull-right">
+                  <button type="button" class="btn btn-default btn-sm">Discard Changes</button>
+                  <button type="button" class="btn btn-default btn-sm" (click)="updateMovie()">Update and Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+

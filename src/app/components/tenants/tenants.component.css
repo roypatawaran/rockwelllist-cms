@@ -10,14 +10,62 @@
     padding-top: 5px;
 } */
 
+input{
+    background-image: linear-gradient(to top, #caaa58 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px) !important;
+}
+
 .card-header-primary{
     background: #caaa58 !important;
 }
+
+/* .table-responsive{
+    display: block;
+    height: 300px;
+    overflow: auto;
+} */
 
 i{
     color:#333333;;
 }
 
 td > i:hover{
+    color: #caaa58;
+}
+
+.editdelete{
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+
+.editdelete > :hover{
+    color: #caaa58;
+}
+
+.textarea{
+    display:inline-block;
+    position:relative;
+}
+
+.buttonarea{
+ position:absolute;
+ bottom:10px;
+ right:10px;
+}
+
+.modal-dialog{
+    max-width: 700px !important;
+}
+
+.actionTd{
+    display: flex;
+    flex-direction: row;
+}
+
+.addtenant{
+    padding: 5px;
+}
+
+.addtenant > :hover{
     color: #caaa58;
 }

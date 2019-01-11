@@ -7,45 +7,30 @@
         <div class="col-md-10">
         <div class="card">
           <div class="card-header card-header-primary">
-            <div class="row">
-              <div class="col-md-5">
-                  <h3 class="card-title">Tenants</h3>
-              </div>
-              <div class="col-md-7">
-                <div class="pull-right">
-                  <button type="button" (click)="addTenant()" class="btn btn-default addtenant">Add Tenant</button>
-                </div>
-              </div>
-            </div>
-            
-            <h6>You can add, update, and delete information on the current tenants on this page</h6>
+            <h3 class="card-title">E-GC List</h3>
+            <h6>You can add, update, and delete information on the current movies on this page.</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-hover" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Category</th>
-                      <th>Location</th>
-                      <th>Contact Number</th>
-                      <th>Date Updated</th>
-                      <th></th>
+                      <th>QR Code</th>
+                      <th>Date Issued</th>
+                      <th>Amount</th>
+                      <th>Reference ID</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let item of items">
-                        <td>{{item.name}}</td>
-                        <td>{{item.item_type}}</td>
-                        <td>{{item.featured}}</td>
-                        <td>{{item.featured}}</td>
-                        <td>{{item.featured}}</td>
+                    <tr *ngFor="let egc of egcs">
                         <td>
-                          <div class="actionTd">
-                              <button (click)="editTenant(item)" class="editdelete" type="button"><i class="material-icons">edit</i></button>
-                              <button (click)="test()" class="editdelete" type="button"><i class="material-icons">clear</i></button>
-                          </div>
+                          <a class="click-qr" (click)="viewQRcode(egc)">Click to view QR Code</a>
                         </td>
+                        <td>{{egc.created_date | date: 'mediumDate'}}</td>
+                        <td>{{egc.amount}}</td>
+                        <td>{{egc.name}}</td>
+                        <td class="status">{{egc.claimed ? 'CLAIMED': 'NOT CLAIMED'}}</td>
                     </tr>
                   </tbody>
                 </table>

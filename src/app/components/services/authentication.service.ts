@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthenticationService {
-    private _url = "http://localhost:3000/cms";
+    private _url = "https://rockwell-mobile.herokuapp.com/cms";
     private headerOptions = new Headers({'Content-Type': 'application/json', 'X-API-Key': 'c4b0f6409c117cd17d3c7638541c2029d642d3c9e71c6343741db45765df2a2f'});
     private loggedIn = false;
 
